@@ -1,0 +1,3 @@
+1) sebelum pi buat persediaan
+2) download siap2 ape yg nak digunakan untuk arduino
+3) time tu baru tanya soalan error
