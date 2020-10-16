@@ -9,7 +9,7 @@ OBJEKTIF YANG BELUM DICAPAI
 
 SENARAI AHLI KUMPULAN
 
-FOLDER PROJEK
+folder projek
 - tasya 
 (subfolder web admin)
 - diela 
