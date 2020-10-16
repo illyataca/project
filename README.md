@@ -7,6 +7,6 @@ OBJEKTIF YANG BELUM DICAPAI
 - To make an web based system for parents to check whether they had done their payment and can upload the receipt of payment on the web.
 - To manage monthly attendance record list and check school’s fee.
 
-project - tasya (subfolder tasya)
-- diela (subfolder diela)
-- fatin (subfolder fatin)
+project - tasya (subfolder web admin)
+- diela (subfolder web parents)
+- fatin (subfolder laporan)
