@@ -16,3 +16,7 @@ folder projek
 (subfolder web parents)
 - fatin 
 (subfolder laporan)
+
+Objektif Pertama : 19/9/2020
+Objektif Kedua : 12/10/2020
+Objektif Ketiga : 18/11/2020
