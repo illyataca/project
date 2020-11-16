@@ -11,16 +11,16 @@
         $name = $_POST['name'];
 		$norfid = $_POST['norfid'];
 		$gender = $_POST['gender'];
+		$nokp = $_POST['nokp'];
         $email = $_POST['email'];
         $mobile = $_POST['mobile'];
-		$id2 = $_GET['idpelajar'];
          
         $pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "UPDATE pelajar  set name = ?, gender =?, email =?, mobile =?  WHERE norfid = ?";
+		$sql = "UPDATE pelajar set name = ?, gender =?, nokp =?, email =?, mobile =?  WHERE nokp = ?";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($name,$gender,$email,$mobile,$norfid));
+		$q->execute(array($name,$gender,$nokp,$email,$mobile,$nokp));
 		Database::disconnect();
-		header("Location: parentsinfo.php?idpelajar=".$id2);
+		header("Location: parentsinfo.php?nokp=".$nokp);
     }
 ?>

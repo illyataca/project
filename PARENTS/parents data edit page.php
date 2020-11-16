@@ -1,13 +1,13 @@
 <?php
     require 'database.php';
     $id = null;
-    if ( !empty($_GET['idpelajar'])) {
-        $id = $_REQUEST['idpelajar'];
+    if ( !empty($_GET['nokp'])) {
+        $id = $_REQUEST['nokp'];
     }
      
     $pdo = Database::connect();
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql = "SELECT * FROM pelajar where idpelajar = ?";
+	$sql = "SELECT * FROM pelajar where nokp = ?";
 	$q = $pdo->prepare($sql);
 	$q->execute(array($id));
 	$data = $q->fetch(PDO::FETCH_ASSOC);
@@ -86,8 +86,8 @@
 					<h3 align="center">Edit User Data</h3>
 					<p id="defaultGender" hidden><?php echo $data['gender'];?></p>
 				</div>
-		 <?php $id2 = $_GET['idpelajar']?>
-				<form class="form-horizontal" action="parents data edit tb.php?idpelajar=<?php echo $id2?>" method="post">
+		 
+				<form class="form-horizontal" action="parents data edit tb.php?nokp=<?php echo $id?>" method="post">
 					<div class="control-group">
 						<label class="control-label">ID</label>
 						<div class="controls">
@@ -113,6 +113,13 @@
 					</div>
 					
 					<div class="control-group">
+						<label class="control-label">NRIC Parents</label>
+						<div class="controls">
+							<input name="nokp" type="text" placeholder="" value="<?php echo $data['nokp'];?>" required>
+						</div>
+					</div>
+					
+					<div class="control-group">
 						<label class="control-label">Email Address</label>
 						<div class="controls">
 							<input name="email" type="text" placeholder="" value="<?php echo $data['email'];?>" required>
@@ -126,13 +133,14 @@
 						</div>
 					</div>
 					
-					<div class="form-actions">
+					<div align="center" class="control-group">
 						<button type="submit" class="btn btn-success">Update</button>
-						<a class="btn" href="parentsinfo.php?idpelajar=<?php echo $id2?>">Back</a>
+						<a class="btn" href="parentsinfo.php?nokp=<?php echo $data['nokp']?>">Back</a>
 					</div>
 				</form>
 			</div>               
 		</div> <!-- /container -->	
+		
 		<script>
 			var g = document.getElementById("defaultGender").innerHTML;
 			if(g=="Male") {

@@ -75,7 +75,8 @@
 	
 		<h2>Kindergarten Management System</h2>
 		<ul class="topnav">
-			<li><a class="active" href="parentsinfo.php">Student's Info</a></li>
+			<li><a class="active" href="parentsinfo.php?nokp=<?php echo $nokp?>">Student's Info</a></li>
+			<li><a href="changePass.php">Change Password</a></li>
 		</ul>
 		<br>
 		<div class="container">
@@ -93,6 +94,7 @@
                       <th>Name</th>
                       <th>ID</th>
 					  <th>Gender</th>
+					  <th>NRIC Parents</th>
 					  <th>Email</th>
                       <th>Mobile Number</th>
 					  <th>Action</th>
@@ -101,18 +103,19 @@
                   <tbody>
                   <?php
 				  include 'database.php';
-				  $id = $_GET['idpelajar'];
+				  $id = $_GET['nokp'];
                    
                    $pdo = Database::connect();
-                   $sql = 'SELECT * FROM pelajar WHERE pelajar.idpelajar='.$id;
+                   $sql = 'SELECT * FROM pelajar WHERE pelajar.nokp='.$id;
                    foreach ($pdo->query($sql) as $row) {
                             echo '<tr>';
                             echo '<td>'. $row['name'] . '</td>';
                             echo '<td>'. $row['norfid'] . '</td>';
                             echo '<td>'. $row['gender'] . '</td>';
+                            echo '<td>'. $row['nokp'] . '</td>';
 							echo '<td>'. $row['email'] . '</td>';
 							echo '<td>'. $row['mobile'] . '</td>';
-							echo '<td><a class="btn btn-success" href="parents data edit page.php?idpelajar='.$id.'">Edit</a>';
+							echo '<td><a class="btn btn-success" href="parents data edit page.php?nokp='.$row['nokp'].'">Edit</a>';
 							echo '</td>';
                             echo '</tr>';
                    }
@@ -137,14 +140,14 @@
                   </thead>
                   <tbody>
                   <?php
-				  $id = $_GET['idpelajar'];
+				  $id = $_GET['nokp'];
                    $pdo = Database::connect();
-                   $sql = 'SELECT * FROM pelajar JOIN yuran ON pelajar.idpelajar=yuran.idpelajar WHERE pelajar.idpelajar='.$id;
+                   $sql = 'SELECT * FROM pelajar JOIN yuran ON pelajar.nokp=yuran.idpelajar WHERE pelajar.nokp='.$id;
                    foreach ($pdo->query($sql) as $row) {
                             echo '<tr>';
 							echo '<td>'. $row['tarikh'] . '</td>';
 							echo '<td>'. $row['bulan'] . '</td>';
-							echo '<td><a>Done</a></td>';
+							echo '<td>Done</td>';
                             echo '</tr>';
                    }
                    Database::disconnect();
